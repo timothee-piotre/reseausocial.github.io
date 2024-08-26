@@ -3,45 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Setup</title>
-    <script>
-        // Simuler l'exécution de commandes via des messages dans la console du navigateur
-        function runCommand(command) {
-            return new Promise((resolve, reject) => {
-                console.log(`Executing command: ${command}`);
-                // Simulation d'une commande réussie
-                resolve(`Command '${command}' executed successfully.`);
-            });
-        }
-
-        async function startBackend() {
-            console.log('Starting backend server...');
-            try {
-                const result = await runCommand('node server.js');
-                console.log(result);
-                console.log('Backend server started successfully.');
-            } catch (error) {
-                console.error('Failed to start backend server.');
-            }
-        }
-
-        async function startFrontend() {
-            console.log('Starting frontend server...');
-            // Simulation du démarrage du serveur frontend
-            console.log('Frontend server started successfully.');
-        }
-
-        async function startServers() {
-            await startBackend();
-            await startFrontend();
-        }
-
-        // Lancer les serveurs au chargement de la page
-        window.onload = startServers;
-    </script>
+    <title>Social Network</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
 </head>
 <body>
-    <h1>Server Setup</h1>
-    <p>Backend and frontend servers are being started...</p>
+    <h1>Welcome to Social Network</h1>
+    <a href="login.html">Login</a> | <a href="register.html">Register</a>
+    <p>This is the homepage of the social network.</p>
+    <button id="startServersBtn">Start Servers</button>
+    <pre id="consoleOutput"></pre>
 </body>
 </html>
