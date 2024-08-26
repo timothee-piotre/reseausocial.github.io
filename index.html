@@ -1,19 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <title>Accueil - Réseau Social</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>Bienvenue sur </h1>
-        <h2>veuillez saisir vos identifiants</h2>
+        <h1>veuillez saisir vos identifiants</h1>
         <nav>
-            <a href="login.Html">Mes Groupes</a>
+            <a href="login.html">connection</a>
+            <a href="register.html">inscription</a>
         </nav>
     </header>
+    
+
+<body>
+    <header>
+        <h1>Bienvenue sur notre réseau social</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="group.html">Mes Groupes</a>
+            <a href="#" id="logout">Déconnexion</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <button id="create-group">Créer un Groupe</button>
+            <button id="join-group">Rejoindre un Groupe</button>
+        </section>
+
+        <section id="groups-list">
+            <!-- Liste des groupes apparaîtra ici -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Réseau Social. Tous droits réservés.</p>
+    </footer>
+
     <script src="js/script.js"></script>
 </body>
+
 </html>
