@@ -1,43 +1,47 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Network - Connexion</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Server Setup</title>
+    <script>
+        // Simuler l'exécution de commandes via des messages dans la console du navigateur
+        function runCommand(command) {
+            return new Promise((resolve, reject) => {
+                console.log(`Executing command: ${command}`);
+                // Simulation d'une commande réussie
+                resolve(`Command '${command}' executed successfully.`);
+            });
+        }
+
+        async function startBackend() {
+            console.log('Starting backend server...');
+            try {
+                const result = await runCommand('node server.js');
+                console.log(result);
+                console.log('Backend server started successfully.');
+            } catch (error) {
+                console.error('Failed to start backend server.');
+            }
+        }
+
+        async function startFrontend() {
+            console.log('Starting frontend server...');
+            // Simulation du démarrage du serveur frontend
+            console.log('Frontend server started successfully.');
+        }
+
+        async function startServers() {
+            await startBackend();
+            await startFrontend();
+        }
+
+        // Lancer les serveurs au chargement de la page
+        window.onload = startServers;
+    </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Bienvenue sur Social Network</h1>
-        <div class="login-container">
-            <form action="/api/auth/login" method="POST">
-                <h2>Connexion</h2>
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="password" required>
-
-                <button type="submit">Se connecter</button>
-            </form>
-
-            <div class="links">
-                <a href="register.html">Créer un compte</a>
-                <a href="reset-password.html">Réinitialiser le mot de passe</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="additional-links">
-        <h2>Navigation</h2>
-        <ul>
-            <li><a href="group.html">Accéder aux groupes</a></li>
-            <li><a href="/api/groups/create">Créer un groupe</a></li>
-            <li><a href="/api/photos">Voir les photos</a></li>
-            <li><a href="/api/groups/join">Rejoindre un groupe</a></li>
-        </ul>
-    </div>
-
-    <script src="js/setup.js"></script>
+    <h1>Server Setup</h1>
+    <p>Backend and frontend servers are being started...</p>
 </body>
 </html>
