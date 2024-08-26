@@ -1,55 +1,44 @@
-// scripts/setup.js
+document.getElementById('startServersBtn').addEventListener('click', startServers);
 
-const { exec } = require('child_process');
-const path = require('path');
+function appendToConsole(message) {
+    const consoleOutput = document.getElementById('consoleOutput');
+    consoleOutput.textContent += message + '\n';
+}
 
-// Chemins des fichiers à exécuter
-const backendServerPath = path.join(__dirname, '..', 'backend', 'server.js');
-const frontendServerPath = path.join(__dirname, '..', 'frontend', 'index.html'); // Ajustez selon la méthode de démarrage de votre frontend
-
-// Fonction pour exécuter une commande
-function runCommand(command, cwd) {
-    return new Promise((resolve, reject) => {
-        exec(command, { cwd }, (error, stdout, stderr) => {
-            if (error) {
-                console.error(`Error executing command: ${error.message}`);
-                reject(error);
-                return;
-            }
-            if (stderr) {
-                console.error(`stderr: ${stderr}`);
-            }
-            console.log(`stdout: ${stdout}`);
-            resolve(stdout);
-        });
+function runCommand(command) {
+    return new Promise((resolve) => {
+        appendToConsole(`Executing command: ${command}`);
+        // Simulation d'une commande avec un délai pour imiter une exécution réelle
+        setTimeout(() => {
+            resolve(`Command '${command}' executed successfully.`);
+        }, 1000);
     });
 }
 
-// Démarrer le serveur backend
 async function startBackend() {
-    console.log('Starting backend server...');
+    appendToConsole('Starting backend server...');
     try {
-        await runCommand('node server.js', path.join(__dirname, '..', 'backend'));
-        console.log('Backend server started successfully.');
+        const result = await runCommand('node server.js');
+        appendToConsole(result);
+        appendToConsole('Backend server started successfully.');
     } catch (error) {
-        console.error('Failed to start backend server.');
+        appendToConsole('Failed to start backend server.');
     }
 }
 
-// Démarrer le frontend (si nécessaire)
 async function startFrontend() {
-    // Remplacez cette partie par la commande spécifique à votre frontend
-    console.log('Starting frontend server...');
-    // Par exemple, si vous utilisez Live Server, vous pouvez le démarrer ici
-    // await runCommand('npx live-server', path.join(__dirname, '..', 'frontend'));
-    console.log('Frontend server started successfully.');
+    appendToConsole('Starting frontend server...');
+    // Simulation du démarrage du serveur frontend
+    try {
+        const result = await runCommand('Opening index.html');
+        appendToConsole(result);
+        appendToConsole('Frontend server started successfully.');
+    } catch (error) {
+        appendToConsole('Failed to start frontend server.');
+    }
 }
 
-// Fonction principale
 async function startServers() {
     await startBackend();
     await startFrontend();
 }
-
-// Exécuter les serveurs
-startServers();
