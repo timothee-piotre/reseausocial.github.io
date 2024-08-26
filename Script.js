@@ -4,8 +4,8 @@ const { exec } = require('child_process');
 const path = require('path');
 
 // Chemins des fichiers à exécuter
-const backendServerPath = path.join(__dirname, '..', 'backend', 'server.js');
-const frontendServerPath = path.join(__dirname, '..', 'frontend', 'index.html'); // Ajustez selon la méthode de démarrage de votre frontend
+const backendServerPath = path.join(__dirname, '..', 'social-network-backend', 'server.js');
+const frontendServerPath = path.join(__dirname, '..', 'social-network-frontend', 'index.html'); // Ajustez selon la méthode de démarrage de votre frontend
 
 // Fonction pour exécuter une commande
 function runCommand(command, cwd) {
@@ -29,7 +29,7 @@ function runCommand(command, cwd) {
 async function startBackend() {
     console.log('Starting backend server...');
     try {
-        await runCommand('node server.js', path.join(__dirname, '..', 'backend'));
+        await runCommand('node server.js', path.join(__dirname, '..', 'social-network-backend'));
         console.log('Backend server started successfully.');
     } catch (error) {
         console.error('Failed to start backend server.');
