@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <title>Connexion</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>Bienvenue sur notre réseau social</h1>
-        <nav>
-            <a href="group.html">Mes Groupes</a>
-            <a href="login.html">Déconnexion</a>
-        </nav>
+        <h1>Connexion</h1>
     </header>
     <main>
-        <button id="create-group">Créer un Groupe</button>
-        <button id="join-group">Rejoindre un Groupe</button>
-        <div id="groups-list"></div>
+        <form id="login-form">
+            <script src="js/script.js"></script>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="password">Mot de passe:</label>
+            <input type="password" id="password" required>
+            <button onclick="login()">Se Connecter</button>
+            <p>Pas encore inscrit? <a href="register.html">S'inscrire</a></p>
+        </form>
     </main>
-    <script src="js/script.js"></script>
 </body>
 </html>
-
-
